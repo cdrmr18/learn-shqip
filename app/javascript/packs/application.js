@@ -73,13 +73,13 @@ function resultWon() {
 }
 
 function resultWarning() {
-  let dialog = '<div class="bg-warning"><span><strong>Oops!</strong> 😱 Try again!</span></div>';
+  let dialog = '<div class="alert alert-warning" role="alert"><span><strong>Oops!</strong> 😱 Try again!</span></div>';
   document.getElementById('result').innerHTML = dialog;
 
 }
 
 function resultGameEnd() {
-  let dialog = '<div class="bg-primary"><span><strong>Oops!</strong>End of game. Good work!</span></div>';
+  let dialog = '<div class="alert alert-success" role="alert"><span><strong>Oops!</strong>End of game. Good work!</span></div>';
   document.getElementById('result').innerHTML = dialog;
 
 }
@@ -90,10 +90,10 @@ function saveHistory(guess) {
 
 function displayHistory() {
   let i = guesses.length - 1;
-  let list = "<ul>";
+  let list = "<ul class='list-group'>";
     
   while (i >= 0) {
-    list += "<li>" + `${guesses[i]}` + "</li>";
+    list += "<li class='list-group-item'>" + `${guesses[i]}` + "</li>";
     i--;
   }
 

@@ -1,6 +1,11 @@
-.alert {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+#vocab-guess,
+#result,
+#history {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.banner {
+  color: blue;
+  font-size: 80px;
+  font-family: sans-serif;
 }
