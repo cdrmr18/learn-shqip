@@ -42,17 +42,28 @@ function playGame() {
 
   let guess = document.getElementById("vocab-guess").value.toLowerCase();
 
- displayResult(guess);
- saveHistory(guess);
- displayHistory();
+  displayResult(guess);
+  saveHistory(guess);
+  displayHistory();
 }
 
 function displayResult(guess) {
   if (guess == phrase){
-    console.log("you're right")
+    resultWon();
   } else {
-    console.log("you're wrong")
+    resultWarning();
   }
+}
+
+function resultWon() {
+  let dialog = '<div class="bg-success"><span><strong>Yay!</strong> 🎉 you got it!</span></div>';
+  document.getElementById('result').innerHTML = dialog;
+}
+
+function resultWarning() {
+  let dialog = '<div class="bg-warning"><span><strong>Oops!</strong> 😱 Try again!</span></div>';
+  document.getElementById('result').innerHTML = dialog;
+
 }
 
 function saveHistory(guess) {
