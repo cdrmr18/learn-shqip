@@ -31,7 +31,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   document.getElementById("guess-submit").addEventListener('click', playGame);
-  // document.getElementById("reset-game").addEventListener("click", initGame)
+  document.getElementById("reset-game").addEventListener("click", initGame)
 });
 
 // Game logic
@@ -45,6 +45,7 @@ function playGame() {
   displayResult(guess);
   saveHistory(guess);
   displayHistory();
+  document.getElementById("vocab-guess").value = "";
 }
 
 function displayResult(guess) {
@@ -83,6 +84,9 @@ function displayHistory() {
   document.getElementById('history').innerHTML = list;
 }
 
-// function initGame() {
-
-// }
+function initGame() {
+  phrase = "po";
+  guesses = [];
+  document.getElementById('result').innerHTML = "";
+  displayHistory();
+}
