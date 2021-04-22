@@ -35,22 +35,34 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 // Game logic
-let phrase = "Si je";
-console.log(phrase);
+let phrase = "si je";
+let guesses = [];
+// console.log(phrase);
 
 function playGame() {
 
-  let guess = document.getElementById("vocab-guess").value;
+  let guess = document.getElementById("vocab-guess").value.toLowerCase();
 
-  // displayResult(guess);
-  console.log(guess);
+ displayResult(guess);
+ saveHistory(guess);
+//  displayHistory();
+  // console.log(guess);
 }
 
-// function displayResult() {
+function displayResult(guess) {
+  if (guess == phrase){
+    console.log("you're right")
+  } else {
+    console.log("you're wrong")
+  }
+}
 
-// }
+function saveHistory(guess) {
+  guesses.push(guess);
+}
 
-// function () {
+// function displayHistory() {
+//   index = 0;
 
 // }
 
