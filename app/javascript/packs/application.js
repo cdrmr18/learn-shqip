@@ -31,17 +31,29 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   document.getElementById("guess-submit").addEventListener('click', playGame);
-  document.getElementById("reset-game").addEventListener("click", initGame)
+  // document.getElementById("reset-game").addEventListener("click", initGame)
 });
 
 // Game logic
+let phrase = "Si je";
+console.log(phrase);
+
 function playGame() {
 
   let guess = document.getElementById("vocab-guess").value;
+
+  // displayResult(guess);
   console.log(guess);
-
 }
 
-function initGame() {
+// function displayResult() {
 
-}
+// }
+
+// function () {
+
+// }
+
+// function initGame() {
+
+// }
