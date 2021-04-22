@@ -37,7 +37,6 @@ document.addEventListener('turbolinks:load', () => {
 // Game logic
 let phrase = "si je";
 let guesses = [];
-// console.log(phrase);
 
 function playGame() {
 
@@ -45,8 +44,7 @@ function playGame() {
 
  displayResult(guess);
  saveHistory(guess);
-//  displayHistory();
-  // console.log(guess);
+ displayHistory();
 }
 
 function displayResult(guess) {
@@ -61,10 +59,18 @@ function saveHistory(guess) {
   guesses.push(guess);
 }
 
-// function displayHistory() {
-//   index = 0;
+function displayHistory() {
+  let i = guesses.length - 1;
+  let list = "<ul>";
+    
+  while (i >= 0) {
+    list += "<li>" + `${guesses[i]}` + "</li>";
+    i--;
+  }
 
-// }
+  list += "</ul>"
+  document.getElementById('history').innerHTML = list;
+}
 
 // function initGame() {
 
