@@ -31,15 +31,26 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   document.getElementById("guess-submit").addEventListener('click', playGame);
-  document.getElementById("reset-game").addEventListener("click", initGame)
+  document.getElementById("reset-game").addEventListener("click", initGame);
 });
 
 // Game logic
-let phrase = "si je";
+
+let vocabulary = [{
+  "sentence": 'How are you?', 
+  "meaning": 'si je?'
+}, {
+  "sentence": 'hello', 
+  "meaning": 'përshëndetje'
+}
+];
+let vocab_i = 0;
+let sentence = vocabulary[vocab_i]["sentence"];
+let phrase = vocabulary[vocab_i]["meaning"];
 let guesses = [];
+document.getElementById("sentence").innerHTML = sentence;
 
 function playGame() {
-
   let guess = document.getElementById("vocab-guess").value.toLowerCase();
 
   displayResult(guess);
@@ -67,6 +78,12 @@ function resultWarning() {
 
 }
 
+function resultGameEnd() {
+  let dialog = '<div class="bg-primary"><span><strong>Oops!</strong>End of game. Good work!</span></div>';
+  document.getElementById('result').innerHTML = dialog;
+
+}
+
 function saveHistory(guess) {
   guesses.push(guess);
 }
@@ -85,8 +102,16 @@ function displayHistory() {
 }
 
 function initGame() {
-  phrase = "po";
   guesses = [];
   document.getElementById('result').innerHTML = "";
   displayHistory();
+  vocab_i++;
+  if (vocab_i < vocabulary.length) {
+    sentence = vocabulary[vocab_i]["sentence"];
+    phrase = vocabulary[vocab_i]["meaning"];
+    document.getElementById("sentence").innerHTML = sentence;
+  } else {
+    resultGameEnd();
+  }
+  
 }
