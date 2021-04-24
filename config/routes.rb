@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/new', to: 'vocabulary#new', as: 'vocab_new'
+  get '/create', to: 'vocabulary#create', as: 'vocab_create'
+  get '/destroy', to: 'vocabulary#destroy', as: 'vocab_destroy'
 end
