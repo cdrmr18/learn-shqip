@@ -37,18 +37,18 @@ document.addEventListener('turbolinks:load', () => {
 // Game logic
 
 let vocabulary = [{
-  "sentence": 'How are you?', 
-  "meaning": 'si je?'
+  "eng": 'How are you?', 
+  "alb": 'si je?'
 }, {
-  "sentence": 'hello', 
-  "meaning": 'përshëndetje'
+  "eng": 'hello', 
+  "alb": 'përshëndetje'
 }
 ];
 let vocab_i = 0;
-let sentence = vocabulary[vocab_i]["sentence"];
-let phrase = vocabulary[vocab_i]["meaning"];
+let eng = vocabulary[vocab_i]["eng"];
+let phrase = vocabulary[vocab_i]["alb"];
 let guesses = [];
-document.getElementById("sentence").innerHTML = sentence;
+document.getElementById("eng").innerHTML = eng;
 
 function playGame() {
   let guess = document.getElementById("vocab-guess").value.toLowerCase();
@@ -107,9 +107,9 @@ function initGame() {
   displayHistory();
   vocab_i++;
   if (vocab_i < vocabulary.length) {
-    sentence = vocabulary[vocab_i]["sentence"];
-    phrase = vocabulary[vocab_i]["meaning"];
-    document.getElementById("sentence").innerHTML = sentence;
+    eng = vocabulary[vocab_i]["eng"];
+    phrase = vocabulary[vocab_i]["alb"];
+    document.getElementById("eng").innerHTML = eng;
   } else {
     resultGameEnd();
   }
